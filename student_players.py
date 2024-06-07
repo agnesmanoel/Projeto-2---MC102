@@ -1,8 +1,34 @@
 from basic_players import Player
-
+from judge import Judge
 
 class Jogador(Player):
+
+    def contar_peças(self): # Conta as peças no inicio do jogo
+        my_tiles = self.tiles
+        peças = {1:11, 2:11, 3:11, 4:11, 5:11, 6:11, 7:11, 8:11, 9:11}
+        for i,j in my_tiles:
+            for k in peças:
+                if i == k:
+                    peças[k] -= 1
+                elif j == k:
+                    peças[k] -= 1
+        return peças
+
     def play(self, board_extremes, play_hist):
+
+        def estrategia_agnes(self):
+            last_play = play_hist[1]
+            contagem_peças = self.contar_peças()
+            for k in contagem_peças:
+                for i,j in last_play:
+                    if i == k:
+                        contagem_peças[i] -= 1
+                    if j == k: 
+                        contagem_peças[i] -= 1
+
+
+
+
         playable_tiles = self._tiles
         if len(board_extremes) > 0:
             # Filtrando as peças jogáveis
@@ -51,6 +77,7 @@ class Jogador(Player):
                 return 1, playable_tiles[highest]
             else:
                 return 1, None
+        
 
 # Função que define o nome da dupla:
 def pair_name():
@@ -58,4 +85,6 @@ def pair_name():
 
 # Função que cria a dupla:
 def create_pair():
-    return (Agnes("123", 'Agnes'), Marlom('321', 'Marlon'))  # Defina aqui a dupla de jogadores. Deve ser uma tupla com dois jogadores.
+    pass
+
+    #return (Agnes("123", 'Agnes'), Marlom('321', 'Marlon'))  # Defina aqui a dupla de jogadores. Deve ser uma tupla com dois jogadores.
