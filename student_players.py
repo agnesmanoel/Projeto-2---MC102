@@ -3,7 +3,7 @@ from judge import Judge
 
 class Jogador(Player):
 
-    def contar_peças(self): # Conta as peças no inicio do jogo
+    def contar_peças_inicial(self): # Conta as peças no inicio do jogo
         my_tiles = self.tiles
         peças = {1:11, 2:11, 3:11, 4:11, 5:11, 6:11, 7:11, 8:11, 9:11}
         for i,j in my_tiles:
@@ -15,9 +15,9 @@ class Jogador(Player):
         return peças
 
     def play(self, board_extremes, play_hist):
-
+        
         def estrategia_agnes(self):
-            last_play = play_hist[1]
+            last_play = play_hist[0]
             contagem_peças = self.contar_peças()
             for k in contagem_peças:
                 for i,j in last_play:
@@ -25,6 +25,11 @@ class Jogador(Player):
                         contagem_peças[i] -= 1
                     if j == k: 
                         contagem_peças[i] -= 1
+            return contagem_peças
+        
+        def peças_ignoradas(self):
+            #como armazenar o valor desse dic - quero que meu dic conte todas a vezes que uma peça for pulada,
+            pass
 
 
 
