@@ -8,7 +8,7 @@ parser.add_argument(
     "--num-matches",
     "-n",
     type = int,
-    default = 1000,
+    default = 1,
     help="Número de jogos em uma partida entre duas duplas",
 )
 
@@ -17,7 +17,7 @@ parser.add_argument(
     "--speed",
     "-s",
     type = int,
-    default = 500,
+    default = 0,
     help = "Velocidade (ms) de cada jogada",
 )
 
